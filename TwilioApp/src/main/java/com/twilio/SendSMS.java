@@ -10,10 +10,14 @@ import Util.Person;
 public class SendSMS {
 
 	/*
-	 * This is the short settings component for Twilio
+	 * This is the settings component for Twilio
+	 * please uncomment these lines if hard coding of the API is needed
 	 */
-	private final String ACCT_SID = "ACa781c9ef3e203041b6949c9d347433ef";
-	private final String AUTH_TOKEN = "ef7956361f0bd473389b050fcfd8158d";
+	//private final String ACCOUNT_SID = "";
+	//private final String AUTH_TOKEN = "";
+
+	private final String ACCOUNT_SID = System.getenv("TWILIO_ACCOUNT_SID");
+	private final String AUTH_TOKEN = System.getenv("TWILIO_AUTH_TOKEN");
 	private final String TWILIO_PHONE = "5153254937";
 	private final String USER_FIRST = "Craig";
 	private final String USER_PHONE = "(515)290-9363";
@@ -22,7 +26,7 @@ public class SendSMS {
 	 * Constructs a phone object and initializes the Twilio account
 	 */
 	public SendSMS() {
-		Twilio.init(ACCT_SID, AUTH_TOKEN);
+		Twilio.init(ACCOUNT_SID, AUTH_TOKEN);
 	}
 
 	/*
