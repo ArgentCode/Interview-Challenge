@@ -14,7 +14,7 @@ import Util.Person;
  * This is a program that sends a text message to anyone who's birthday is this month!
  * @Author Craig Orman
  */
-public class Primary {
+public class Primary implements UserSettings{
 
 	/*
 	 * takes our input and determines if the data is valid for processing Date is
@@ -31,13 +31,11 @@ public class Primary {
 	}
 
 	public static void main(String[] args) throws java.io.IOException {
-
-		String path = "C:\\Users\\black\\Documents\\GitHub\\Interview-Challenge\\addressBook.csv"; // change as needed to get the correct addressBook
 		String line = ""; // will hold all the values
 		ArrayList<Person> sending = new ArrayList<Person>(); // collects all Person Objects to send messages to
 
 		try {
-			BufferedReader br = new BufferedReader(new FileReader(path));
+			BufferedReader br = new BufferedReader(new FileReader(PATH));
 			br.readLine();
 			while ((line = br.readLine()) != null) {
 				String[] values = line.split(","); // breaks the line into strings separated by the commas
